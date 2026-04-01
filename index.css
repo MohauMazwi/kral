@@ -1,0 +1,1159 @@
+/* ============================================================
+   KRAL FOOTWEAR — Elle & Riley–faithful Design System
+   Reference: elleandriley.com
+   Fonts: Riforma LL → Outfit (closest free geometric sans)
+          Garamond Premier Pro Display → EB Garamond
+   Typography: h1: 42px, h2: 30px, body: 16px
+   Spacing base: 4px | Border-radius: 4px
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
+/* --- Design Tokens (matched to Elle & Riley) --- */
+:root {
+  /* Colors — Elle & Riley uses pure #000 on #fff */
+  --color-bg:          #FFFFFF;
+  --color-bg-warm:     #F5F1ED;
+  --color-surface:     #FFFFFF;
+  --color-text:        #000000;
+  --color-text-sec:    #6B6560;
+  --color-text-muted:  #9A9490;
+  --color-accent:      #9A8C7E;
+  --color-accent-dark: #4A4540;
+  --color-highlight:   #C4B5A5;
+  --color-border:      #E8E4DF;
+  --color-overlay:     rgba(0, 0, 0, 0.45);
+
+  /* Fonts — Riforma LL → Outfit, Garamond Premier Pro Display → EB Garamond */
+  --font-body:    'Outfit', sans-serif;
+  --font-heading: 'EB Garamond', serif;
+
+  /* Typography scale */
+  --text-h1:     2.625rem;   /* 42px */
+  --text-h2:     1.875rem;   /* 30px */
+  --text-h3:     1.25rem;    /* 20px */
+  --text-body:   1rem;       /* 16px */
+  --text-sm:     0.875rem;   /* 14px */
+  --text-xs:     0.75rem;    /* 12px */
+  --text-xxs:    0.625rem;   /* 10px */
+  --text-nav:    0.5625rem;  /* 9px */
+
+  /* Border radius */
+  --radius:      4px;
+
+  /* Nav heights — from Elle & Riley :root */
+  --nav-main-height:       160px;
+  --announcement-height:   40px;
+  --nav-height:            calc(var(--nav-main-height) + var(--announcement-height));
+  --simplified-nav-height: 82px;
+
+  /* Spacing — base unit: 4px */
+  --space-1:    0.25rem;   /*  4px */
+  --space-2:    0.5rem;    /*  8px */
+  --space-3:    0.75rem;   /* 12px */
+  --space-4:    1rem;      /* 16px */
+  --space-5:    1.25rem;   /* 20px */
+  --space-6:    1.5rem;    /* 24px */
+  --space-8:    2rem;      /* 32px */
+  --space-10:   2.5rem;    /* 40px */
+  --space-12:   3rem;      /* 48px */
+  --space-16:   4rem;      /* 64px */
+  --space-20:   5rem;      /* 80px */
+  --space-24:   6rem;      /* 96px */
+  --space-32:   8rem;      /* 128px */
+
+  /* Legacy spacing aliases */
+  --space-xs:   var(--space-1);
+  --space-sm:   var(--space-2);
+  --space-md:   var(--space-4);
+  --space-lg:   var(--space-6);
+  --space-xl:   var(--space-8);
+  --space-2xl:  var(--space-12);
+  --space-3xl:  var(--space-16);
+  --space-4xl:  var(--space-24);
+  --space-5xl:  var(--space-32);
+
+  --max-width: 1440px;
+  --gutter:    clamp(1.25rem, 3.5vw, 2.5rem);
+
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dur:  250ms;
+  --dur-lg: 500ms;
+}
+
+/* --- Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-body);   /* 16px */
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; cursor: pointer; font-family: inherit; font-weight: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul, ol { list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 { font-size: var(--text-h1); }  /* 42px */
+h2 { font-size: var(--text-h2); }  /* 30px */
+h3 { font-size: var(--text-h3); }  /* 20px */
+
+/* --- Typography Classes --- */
+.t-display {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);     /* 42px */
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.t-heading {
+  font-size: var(--text-h2);     /* 30px */
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.t-subhead {
+  font-family: var(--font-body);
+  font-size: var(--text-xxs);    /* 10px */
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-sec);
+}
+
+.t-section-title {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1.5vw, 0.9375rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.625rem;     /* 10px */
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.875rem 2.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: all var(--dur) var(--ease);
+  cursor: pointer;
+}
+
+.btn--dark {
+  background: var(--color-text);
+  color: #fff;
+  border-color: var(--color-text);
+}
+.btn--dark:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+.btn--outline:hover {
+  background: var(--color-text);
+  color: #fff;
+}
+
+.btn--white {
+  background: #fff;
+  color: var(--color-text);
+  border-color: #fff;
+}
+.btn--white:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn--solid-white {
+  background: #fff;
+  color: #000;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  transition: opacity var(--dur) var(--ease);
+  display: inline-flex;
+}
+.btn--solid-white:hover { opacity: 0.8; }
+
+.btn--link {
+  background: none;
+  padding: 0;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.5625rem;    /* 9px */
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: color var(--dur) var(--ease);
+  cursor: pointer;
+}
+.btn--link:hover { color: var(--color-accent); }
+
+/* ============================================================
+   ANNOUNCEMENT BAR — 40px height, matching Elle & Riley
+   ============================================================ */
+.announcement {
+  background: var(--color-text);
+  color: #fff;
+  text-align: center;
+  height: var(--announcement-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5625rem;    /* 9px */
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1001;
+  transition: transform 0.4s var(--ease);
+}
+
+.announcement .close-btn {
+  position: absolute;
+  right: var(--space-lg);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--dur) var(--ease);
+}
+.announcement .close-btn:hover { opacity: 1; }
+
+/* ============================================================
+   HEADER — Elle & Riley: 160px tall, 3-column grid
+   Left: vertical nav, Center: logo, Right: actions
+   ============================================================ */
+.site-header {
+  position: absolute;
+  top: var(--announcement-height);
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  background: transparent;
+  color: #fff;
+  transition: background var(--dur-lg) var(--ease), top var(--dur-lg) var(--ease), color var(--dur) var(--ease);
+}
+.site-header.menu-open {
+  color: var(--color-text);
+}
+.site-header.menu-open .cart-badge {
+  background: var(--color-text);
+  color: #fff;
+}
+
+.site-header.scrolled {
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+}
+
+.header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-start;
+  padding: var(--space-xl) var(--gutter);
+  min-height: calc(var(--nav-main-height) - var(--space-xl));
+}
+
+/* Logo — centered */
+.logo {
+  font-family: var(--font-body);
+  font-size: 1.125rem;     /* 18px */
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-align: center;
+  justify-self: center;
+}
+
+/* Left nav — vertical stack like Elle & Riley */
+.header-left { display: flex; }
+.nav-links.vertical-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;            /* ~10px */
+  justify-content: flex-start;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.5625rem;     /* 9px — matches Elle & Riley nav */
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  transition: opacity var(--dur) var(--ease);
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--dur) var(--ease);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+/* Right actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  justify-content: flex-end;
+}
+.header-actions svg { width: 18px; height: 18px; stroke-width: 1.5; stroke: currentColor; }
+.currency {
+  font-family: var(--font-body);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.header-link, .header-actions a {
+  font-family: var(--font-body);
+  font-size: 0.5625rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: opacity var(--dur) var(--ease);
+  display: flex;
+  align-items: center;
+}
+.header-link:hover, .nav-links a:hover, .header-actions a:hover {
+  opacity: 0.6;
+}
+.cart-badge {
+  font-size: 0.5rem;
+  font-weight: 600;
+  background: #fff;
+  color: #000;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -7px;
+  left: -5px;
+}
+
+/* Mobile Menu Trigger */
+.menu-trigger {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;     /* 14px */
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-transform: uppercase;
+  z-index: 1100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.menu-trigger:hover, .menu-trigger.active { opacity: 0.6; }
+
+/* Premium Mobile Menu Overlay (Glassmorphism) */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: calc(var(--nav-main-height) + var(--space-4xl)) var(--gutter) var(--space-4xl);
+  gap: var(--space-xl);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-lg) var(--ease);
+}
+.mobile-nav.open { opacity: 1; pointer-events: auto; }
+.mobile-nav a {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: none;
+  border-bottom: none;
+  width: auto;
+  padding-bottom: 0;
+  text-decoration: none;
+  transition: opacity var(--dur) var(--ease);
+}
+.mobile-nav a:hover {
+  opacity: 0.6;
+}
+
+/* ============================================================
+   HERO — 50/50 split, full-viewport, matching Elle & Riley
+   ============================================================ */
+.hero-slider-wrap {
+  position: relative;
+  width: 100%;
+}
+.hero-pagination {
+  position: absolute;
+  bottom: var(--space-4xl);
+  right: var(--space-2xl);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  pointer-events: none;
+}
+@media (min-width: 900px) {
+  .hero-pagination { display: none; }
+}
+.hero-pagination .dot {
+  width: 24px;
+  height: 2px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  transition: background var(--dur) var(--ease);
+}
+.hero-pagination .dot.active {
+  background: #fff;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100dvh;
+  min-height: 700px;
+}
+
+.hero-panel {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.hero-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s var(--ease);
+}
+.hero-panel:hover img { transform: scale(1.03); }
+
+.hero-panel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-3xl);
+  background: linear-gradient(to top, rgba(0,0,0,0.25) 0%, transparent 50%);
+}
+
+.hero-panel-overlay h2 {
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);     /* 42px */
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: var(--space-6);
+  letter-spacing: 0.01em;
+}
+
+.hero-cta { display: flex; }
+
+/* ============================================================
+   THREE-UP CATEGORIES — like Elle & Riley sub-hero row
+   (Pants | Travel Wraps | Tees & Camisoles)
+   ============================================================ */
+.category-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.category-cell {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+.category-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-lg) var(--ease);
+}
+.category-cell:hover img { transform: scale(1.04); }
+
+.category-cell-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: var(--space-xl) var(--space-xl);
+  color: #fff;
+}
+
+.category-cell-text h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);     /* 20px */
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.category-cell-text .btn--link {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* ============================================================
+   SIGNATURE BANNER — product feature (like "SIGNATURE V NECK")
+   ============================================================ */
+.signature-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.signature-banner-image {
+  overflow: hidden;
+}
+.signature-banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signature-banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4xl);
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.signature-banner-content .t-section-title {
+  margin-bottom: var(--space-lg);
+}
+
+.signature-banner-content .btn--link {
+  margin-top: var(--space-lg);
+}
+
+/* ============================================================
+   SECTION HEAD — centered, caps, wide tracking
+   (like "COMPLETE IN CASHMERE")
+   ============================================================ */
+.section-head {
+  text-align: center;
+  padding: var(--space-4xl) var(--gutter) var(--space-xl);
+}
+
+.section-head .t-subhead { margin-bottom: var(--space-sm); }
+
+.section-head h2 {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);     /* 14px */
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Category tabs — like Elle & Riley filter row */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  padding: 0 var(--gutter) var(--space-2xl);
+}
+
+.category-tabs button {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;    /* 11px */
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: all var(--dur) var(--ease);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.category-tabs button:hover,
+.category-tabs button.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-text);
+}
+
+/* ============================================================
+   PRODUCT GRID — 4 columns, clean cards, centered text
+   ============================================================ */
+.products-wrap {
+  padding: 0 var(--gutter) var(--space-4xl);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg) var(--space-md);
+}
+
+.product-card { cursor: pointer; }
+
+.product-card-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--color-bg-warm);
+  margin-bottom: var(--space-md);
+}
+
+.product-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-lg) var(--ease);
+}
+.product-card:hover .product-card-img img { transform: scale(1.04); }
+
+/* Quick view on hover */
+.product-card-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-sm) var(--space-md);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all var(--dur) var(--ease);
+  text-align: center;
+}
+.product-card:hover .product-card-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-card-hover .btn {
+  width: 100%;
+  font-size: 0.5625rem;
+  padding: 0.625rem 1rem;
+}
+
+/* Badge — "BEST SELLER" / "NEW" */
+.product-badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.5rem;       /* 8px */
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: var(--color-text);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+}
+
+/* Card text */
+.product-card-text { text-align: center; }
+.product-card-text h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);     /* 12px */
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-1);
+  text-transform: uppercase;
+}
+.product-card-text .price {
+  font-size: var(--text-xs);     /* 12px */
+  color: var(--color-text-sec);
+  font-weight: 400;
+}
+
+/* Color swatches */
+.product-swatches {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+.product-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+}
+
+/* ============================================================
+   JOURNAL / EDITORIAL — two-up with captions below
+   ============================================================ */
+.journal-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.journal-card { overflow: hidden; }
+
+.journal-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--dur-lg) var(--ease);
+}
+.journal-card:hover img { transform: scale(1.03); }
+
+.journal-card-caption {
+  padding: var(--space-xl) var(--space-xl) var(--space-2xl);
+}
+
+.journal-card-caption h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);     /* 14px */
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.journal-card-caption p {
+  font-size: var(--text-sm);     /* 14px */
+  color: var(--color-text-sec);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+  max-width: 380px;
+}
+
+.journal-card-caption .btn--link {
+  font-size: 0.5625rem;
+  color: var(--color-text);
+}
+
+/* ============================================================
+   BENEFITS ROW — three columns with overlay text
+   ============================================================ */
+.benefits-section {
+  padding: var(--space-4xl) 0 0;
+}
+
+.benefits-section .section-head {
+  padding-bottom: var(--space-2xl);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.benefit-cell {
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+}
+
+.benefit-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.benefit-cell-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-xl);
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%);
+  color: #fff;
+}
+
+.benefit-cell-text p {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   BRAND STORY — split layout
+   ============================================================ */
+.brand-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 550px;
+}
+
+.brand-story-image { overflow: hidden; }
+.brand-story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-story-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-4xl);
+  background: var(--color-bg-warm);
+}
+.brand-story-content .t-subhead { margin-bottom: var(--space-md); }
+.brand-story-content h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: 30px;
+  margin-bottom: var(--space-6);
+  max-width: 380px;
+}
+.brand-story-content p {
+  color: var(--color-text-sec);
+  max-width: 380px;
+  line-height: 1.85;
+  margin-bottom: var(--space-md);
+  font-size: 0.8125rem;
+}
+
+/* ============================================================
+   NEWSLETTER / FOOTER — matching Elle & Riley
+   ============================================================ */
+.newsletter-footer {
+  background: var(--color-bg);
+  padding: var(--space-4xl) var(--gutter);
+  border-top: 1px solid var(--color-border);
+}
+
+.newsletter-footer-inner {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--space-3xl);
+}
+
+.newsletter-col h5 {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+}
+
+.newsletter-col ul { display: flex; flex-direction: column; gap: var(--space-sm); }
+.newsletter-col a {
+  font-size: 0.75rem;
+  color: var(--color-text-sec);
+  transition: color var(--dur) var(--ease);
+}
+.newsletter-col a:hover { color: var(--color-text); }
+
+/* Newsletter form column */
+.newsletter-form-col h5 {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+}
+
+.newsletter-form-col .form-group {
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-form-col input {
+  width: 100%;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text);
+  outline: none;
+  background: transparent;
+  transition: border-color var(--dur) var(--ease);
+}
+.newsletter-form-col input:focus { border-color: var(--color-text); }
+.newsletter-form-col input::placeholder { color: var(--color-text-muted); }
+
+.newsletter-form-col .btn {
+  width: 100%;
+  margin-top: var(--space-lg);
+}
+
+/* Big brand name — like "ELLE & RILEY" at bottom */
+.footer-brand-big {
+  text-align: center;
+  padding: var(--space-3xl) var(--gutter) var(--space-xl);
+}
+.footer-brand-big .logo {
+  font-size: 2.5rem;
+  letter-spacing: 0.25em;
+  color: var(--color-text);
+}
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) var(--gutter);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-bottom p {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.footer-bottom a {
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  transition: color var(--dur) var(--ease);
+}
+.footer-bottom a:hover { color: var(--color-text); }
+
+/* ============================================================
+   MODAL — Quick View
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+  backdrop-filter: blur(3px);
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.modal {
+  background: #fff;
+  max-width: 860px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-height: 80vh;
+  overflow: hidden;
+  transform: scale(0.96) translateY(16px);
+  transition: transform var(--dur-lg) var(--ease);
+}
+.modal-overlay.active .modal { transform: scale(1) translateY(0); }
+
+.modal-img { background: var(--color-bg-warm); }
+.modal-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.modal-body {
+  padding: var(--space-3xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.modal-body .t-subhead { margin-bottom: var(--space-xs); }
+.modal-body h3 { font-size: var(--text-h2); margin-bottom: var(--space-2); }  /* 30px */
+.modal-body .price { font-size: var(--text-body); color: var(--color-text-sec); margin-bottom: var(--space-8); }  /* 16px */
+.modal-body p { color: var(--color-text-sec); line-height: 1.7; margin-bottom: var(--space-12); font-size: var(--text-sm); }  /* 14px */
+
+.modal-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+  color: var(--color-text-sec);
+  z-index: 10;
+  transition: color var(--dur) var(--ease);
+}
+.modal-close:hover { color: var(--color-text); }
+.modal-close svg { width: 18px; height: 18px; stroke-width: 1.5; }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+  .newsletter-footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-2xl); }
+  .signature-banner { grid-template-columns: 1fr; }
+  .brand-story { grid-template-columns: 1fr; }
+  .brand-story-content { padding: var(--space-3xl); }
+  .modal { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
+  .modal-img { max-height: 40vh; }
+}
+
+@media (max-width: 899.98px) {
+  :root {
+    --nav-main-height: 65px;
+    --simplified-nav-height: 65px;
+  }
+  .nav-links, .nav-links.vertical-nav { display: none !important; }
+  .menu-trigger { display: block; align-self: center; }
+  .header-inner { grid-template-columns: 1fr auto 1fr; min-height: auto; padding: var(--space-md) var(--gutter); }
+  .header-left { display: flex; align-items: center; justify-self: start; }
+  .header-center { justify-self: center; }
+  .header-right { justify-self: end; }
+  .hide-on-mobile { display: none !important; }
+
+  .hero-panel-overlay {
+    padding: var(--space-2xl) var(--gutter) calc(var(--space-6xl) + 120px);
+    align-items: flex-start;
+    text-align: left;
+  }
+  .hero-panel-overlay h2 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero-split { 
+    display: flex; 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+    min-height: auto; 
+    height: 100dvh; 
+  }
+  .hero-split::-webkit-scrollbar { display: none; }
+  .hero-panel.hero-main, .hero-panel.hero-secondary { 
+    flex: 0 0 100vw; 
+    scroll-snap-align: start; 
+    height: 100dvh; 
+    min-height: 100dvh;
+    display: block; /* Ensure secondary shows */
+  }
+
+  .category-row { 
+    display: flex; 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+    gap: var(--space-md); 
+    padding: 0 var(--gutter); 
+  }
+  .category-row::-webkit-scrollbar { display: none; }
+  .category-cell { 
+    min-height: 50vh; 
+    flex: 0 0 calc(100vw - (var(--gutter) * 2) - 40px); 
+    scroll-snap-align: center; 
+  }
+
+  .journal-section { grid-template-columns: 1fr; }
+
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-xl) var(--space-sm); }
+  .product-card-hover { display: none; }
+
+  .benefits-grid { grid-template-columns: 1fr; }
+  .benefit-cell { min-height: 350px; }
+
+  .newsletter-footer-inner { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .footer-bottom { flex-direction: column; gap: var(--space-md); }
+  
+  .category-tabs { 
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    justify-content: flex-start; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+    gap: var(--space-md); 
+  }
+  .category-tabs::-webkit-scrollbar { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-panel { min-height: 45vh; }
+  .hero-panel-overlay { padding: var(--space-xl); }
+  .brand-story-content { padding: var(--space-2xl); }
+  .signature-banner-content { padding: var(--space-2xl); }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

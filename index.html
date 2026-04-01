@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRAL Footwear | Premium Men's Shoes — Handcrafted Luxury</title>
+  <meta name="description" content="Discover KRAL Footwear — premium handcrafted men's shoes for the modern professional. Smart casual to formal, crafted for those who lead.">
+  <meta property="og:title" content="KRAL Footwear | Premium Men's Shoes">
+  <meta property="og:description" content="Premium handcrafted men's footwear for the modern professional.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+  <!-- Announcement Bar — 40px, matches Elle & Riley -->
+  <div class="announcement" id="announcement">
+    Beautifully crafted footwear for every occasion.
+    <span class="close-btn" id="close-announcement">&times;</span>
+  </div>
+
+  <!-- Header — Elle & Riley: 3-column grid (left nav, center logo, right actions) -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <nav class="nav-links vertical-nav" id="nav-links">
+          <a href="#new-arrivals">New Arrivals</a>
+          <a href="#shop">Sneakers</a>
+          <a href="#shop">Apparel</a>
+          <a href="#shop">Accessories</a>
+          <a href="#story">About</a>
+          <a href="#shop">Account</a>
+        </nav>
+        <button class="menu-trigger" id="hamburger" aria-label="Menu">Menu</button>
+      </div>
+
+      <div class="header-center">
+        <a href="/" class="logo">KRAL</a>
+      </div>
+
+      <div class="header-right header-actions">
+        <span class="currency hide-on-mobile">ZAR <i data-lucide="chevron-down" style="width: 12px; height: 12px;"></i></span>
+        <a href="#" aria-label="Search"><i data-lucide="search"></i></a>
+        <a href="#" aria-label="User" class="hide-on-mobile"><i data-lucide="user"></i></a>
+        <a href="#" aria-label="Wishlist" class="hide-on-mobile"><i data-lucide="heart"></i></a>
+        <a href="#" aria-label="Cart" id="cart-btn">
+          <i data-lucide="shopping-bag"></i><span class="cart-badge" id="cart-badge" style="display:none;">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#new-arrivals" class="mobile-link">New Arrivals</a>
+    <a href="#shop" class="mobile-link">Sneakers</a>
+    <a href="#shop" class="mobile-link">Apparel</a>
+    <a href="#shop" class="mobile-link">Accessories</a>
+    <a href="#story" class="mobile-link">About</a>
+    <a href="#shop" class="mobile-link">Account</a>
+  </div>
+
+  <!-- ============================================================
+       HERO — 50/50 Split (like Elle & Riley: Fine Cashmere | New Arrivals)
+       ============================================================ -->
+  <div class="hero-slider-wrap">
+    <section class="hero-split" id="hero">
+    <div class="hero-panel hero-main">
+      <img src="assets/images/hype_hero_left.png" alt="KRAL Footwear — Premium Leather" loading="eager">
+      <div class="hero-panel-overlay">
+        <h2>Fine Leather</h2>
+        <div class="hero-cta">
+          <a href="#shop" class="btn btn--solid-white">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-panel hero-secondary">
+      <img src="assets/images/hype_hero_right.png" alt="KRAL Footwear — New Arrivals" loading="eager">
+      <div class="hero-panel-overlay">
+        <h2>New Arrivals</h2>
+        <div class="hero-cta">
+          <a href="#new-arrivals" class="btn btn--solid-white">Explore</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="hero-pagination" id="hero-pagination">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+</div>
+
+  <!-- ============================================================
+       THREE-UP CATEGORIES (like E&R: Pants | Travel Wraps | Tees)
+       ============================================================ -->
+  <section class="category-row" id="new-arrivals">
+    <div class="category-cell">
+      <img src="assets/images/editorial-1.png" alt="Smart Casual Collection" loading="lazy">
+      <div class="category-cell-text">
+        <h3>Smart Casual</h3>
+        <a href="#shop" class="btn--link">Shop Now</a>
+      </div>
+    </div>
+    <div class="category-cell">
+      <img src="assets/images/cat-formal.png" alt="Formal Collection" loading="lazy">
+      <div class="category-cell-text">
+        <h3>Formal Edit</h3>
+        <a href="#shop" class="btn--link">Shop Now</a>
+      </div>
+    </div>
+    <div class="category-cell">
+      <img src="assets/images/editorial-2.png" alt="Boots Collection" loading="lazy">
+      <div class="category-cell-text">
+        <h3>Boots &amp; Ankle</h3>
+        <a href="#shop" class="btn--link">Shop Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SIGNATURE BANNER (like E&R "SIGNATURE V NECK")
+       ============================================================ -->
+  <section class="signature-banner" id="signature">
+    <div class="signature-banner-image">
+      <img src="assets/images/product-1.png" alt="KRAL Classic Brogue Derby — Signature" loading="lazy">
+    </div>
+    <div class="signature-banner-content">
+      <h2 class="t-section-title reveal">Signature Classic Derby</h2>
+      <p class="reveal" style="color: var(--color-text-sec); font-size: 0.8125rem; max-width: 340px; line-height: 1.8; margin-bottom: var(--space-lg);">
+        Hand-stitched from full-grain leather with Goodyear welt construction. Every detail speaks to precision.
+      </p>
+      <a href="#" class="btn--link reveal">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       "COMPLETE IN CRAFTSMANSHIP" — Product Grid with Tab Filters
+       (like E&R "COMPLETE IN CASHMERE")
+       ============================================================ -->
+  <div class="section-head" id="shop">
+    <h2 class="reveal">Complete in Craftsmanship</h2>
+  </div>
+
+  <!-- Category tabs -->
+  <div class="category-tabs">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="Formal">Formal</button>
+    <button data-filter="Smart Casual">Smart Casual</button>
+    <button data-filter="Boots">Boots</button>
+  </div>
+
+  <div class="products-wrap">
+    <div class="products-grid" id="products-grid">
+
+      <div class="product-card reveal reveal-d1" data-product="1" data-category="Formal">
+        <div class="product-card-img">
+          <span class="product-badge">Best Seller</span>
+          <img src="assets/images/product-1.png" alt="Classic Brogue Derby" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="1">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Classic Brogue Derby</h4>
+          <p class="price">R 2,450</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#2C1B0E;"></span>
+            <span class="product-swatch" style="background:#1C1917;"></span>
+            <span class="product-swatch" style="background:#6B4226;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d2" data-product="2" data-category="Formal">
+        <div class="product-card-img">
+          <span class="product-badge">Best Seller</span>
+          <img src="assets/images/product-2.png" alt="Midnight Oxford" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="2">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Midnight Oxford</h4>
+          <p class="price">R 2,650</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#1C1917;"></span>
+            <span class="product-swatch" style="background:#2C1B0E;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d3" data-product="3" data-category="Smart Casual">
+        <div class="product-card-img">
+          <img src="assets/images/product-3.png" alt="Sahara Desert Boot" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="3">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Sahara Desert Boot</h4>
+          <p class="price">R 2,200</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#C4A882;"></span>
+            <span class="product-swatch" style="background:#8B7355;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d4" data-product="4" data-category="Smart Casual">
+        <div class="product-card-img">
+          <img src="assets/images/product-4.png" alt="Olive Suede Casual" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="4">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Olive Suede Casual</h4>
+          <p class="price">R 1,950</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#556B2F;"></span>
+            <span class="product-swatch" style="background:#8B7355;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d1" data-product="5" data-category="Boots">
+        <div class="product-card-img">
+          <span class="product-badge">New</span>
+          <img src="assets/images/product-5.png" alt="Slate Ankle Boot" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="5">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Slate Ankle Boot</h4>
+          <p class="price">R 2,800</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#4A4A4A;"></span>
+            <span class="product-swatch" style="background:#1C1917;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d2" data-product="6" data-category="Formal">
+        <div class="product-card-img">
+          <span class="product-badge">Limited</span>
+          <img src="assets/images/product-6.png" alt="Burgundy Wingtip" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="6">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Burgundy Wingtip</h4>
+          <p class="price">R 2,750</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#722F37;"></span>
+            <span class="product-swatch" style="background:#2C1B0E;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d3" data-product="7" data-category="Smart Casual">
+        <div class="product-card-img">
+          <img src="assets/images/product-7.png" alt="Camel Penny Loafer" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="7">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Camel Penny Loafer</h4>
+          <p class="price">R 1,850</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#C4A882;"></span>
+            <span class="product-swatch" style="background:#6B4226;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal reveal-d4" data-product="8" data-category="Boots">
+        <div class="product-card-img">
+          <span class="product-badge">New</span>
+          <img src="assets/images/product-8.png" alt="Chelsea Boot" loading="lazy">
+          <div class="product-card-hover">
+            <button class="btn btn--dark quick-view" data-id="8">Quick View</button>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <h4>Chelsea Boot</h4>
+          <p class="price">R 2,950</p>
+          <div class="product-swatches">
+            <span class="product-swatch" style="background:#1C1917;"></span>
+            <span class="product-swatch" style="background:#2C1B0E;"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       JOURNAL — Two-up editorial (like E&R: The Journal | India story)
+       ============================================================ -->
+  <section class="journal-section">
+    <div class="journal-card reveal">
+      <img src="assets/images/lifestyle-1.png" alt="The KRAL Journal — Craftsmanship" loading="lazy">
+      <div class="journal-card-caption">
+        <h4>The Journal</h4>
+        <p>Discover the world of KRAL — where stories of craftsmanship, styling inspiration, and timeless purpose unfold.</p>
+        <a href="#" class="btn--link">Explore our Stories</a>
+      </div>
+    </div>
+    <div class="journal-card reveal">
+      <img src="assets/images/hero.png" alt="The Art of Handcrafted Leather" loading="lazy">
+      <div class="journal-card-caption">
+        <h4>The Art of Handcrafted Leather</h4>
+        <p>From the tannery to your feet — follow the journey of a single pair of KRAL shoes, stitched with intention and finished by hand.</p>
+        <a href="#" class="btn--link">Read the Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BENEFITS (like E&R "BENEFITS OF CASHMERE")
+       ============================================================ -->
+  <section class="benefits-section">
+    <div class="section-head">
+      <h2 class="reveal">Benefits of Handcrafted Leather</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-cell">
+        <img src="assets/images/cat-casual.png" alt="Durable" loading="lazy">
+        <div class="benefit-cell-text">
+          <p>Built to last a lifetime with proper care.</p>
+        </div>
+      </div>
+      <div class="benefit-cell">
+        <img src="assets/images/cat-new.png" alt="Natural" loading="lazy">
+        <div class="benefit-cell-text">
+          <p>Naturally breathable and moisture-wicking.</p>
+        </div>
+      </div>
+      <div class="benefit-cell">
+        <img src="assets/images/editorial-2.png" alt="Timeless" loading="lazy">
+        <div class="benefit-cell-text">
+          <p>Timeless pieces to be treasured for years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER — Newsletter + Columns + Big Brand (like E&R)
+       ============================================================ -->
+  <footer>
+    <div class="newsletter-footer">
+      <div class="newsletter-footer-inner">
+        <!-- Newsletter Column -->
+        <div class="newsletter-form-col">
+          <h5>Welcome to the World of KRAL</h5>
+          <form id="newsletter-form">
+            <div class="form-group">
+              <input type="text" placeholder="First Name" aria-label="First Name">
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email" required aria-label="Email" id="newsletter-email">
+            </div>
+            <button type="submit" class="btn btn--dark">Sign Up</button>
+          </form>
+        </div>
+
+        <!-- Shop Column -->
+        <div class="newsletter-col">
+          <h5>Shop</h5>
+          <ul>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Shop All</a></li>
+          </ul>
+        </div>
+
+        <!-- Information Column -->
+        <div class="newsletter-col">
+          <h5>Information</h5>
+          <ul>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- About + Connect Column -->
+        <div class="newsletter-col">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="https://www.instagram.com/kral_footwear/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Big Brand Name — like "ELLE & RILEY" -->
+    <div class="footer-brand-big">
+      <span class="logo">KRAL</span>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>Copyright 2026 &copy; KRAL Footwear</p>
+      <a href="#">Site by S&reg;D</a>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="modal-overlay">
+    <button class="modal-close" id="modal-close" aria-label="Close">
+      <i data-lucide="x"></i>
+    </button>
+    <div class="modal">
+      <div class="modal-img">
+        <img src="" alt="" id="modal-img">
+      </div>
+      <div class="modal-body">
+        <p class="t-subhead" id="modal-cat">Formal</p>
+        <h3 id="modal-title">Product Name</h3>
+        <p class="price" id="modal-price">R 0</p>
+        <p id="modal-desc">Description.</p>
+        <a href="#" class="btn btn--dark" id="modal-cart">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
