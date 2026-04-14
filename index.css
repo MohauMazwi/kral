@@ -416,18 +416,27 @@ h3 { font-size: var(--text-h3); }  /* 20px */
   z-index: 1050;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: calc(var(--nav-main-height) + var(--space-4xl)) var(--gutter) var(--space-4xl);
-  gap: var(--space-xl);
+  justify-content: space-between;
+  padding: calc(var(--nav-main-height) + var(--space-2xl)) var(--gutter) var(--space-xl);
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--dur-lg) var(--ease);
 }
 .mobile-nav.open { opacity: 1; pointer-events: auto; }
-.mobile-nav a {
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: var(--space-2xl);
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav-links a {
   font-family: var(--font-heading);
-  font-size: 2.75rem;
+  font-size: 2.25rem;
   font-weight: 300;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.95);
@@ -438,9 +447,49 @@ h3 { font-size: var(--text-h3); }  /* 20px */
   text-decoration: none;
   transition: opacity var(--dur) var(--ease);
 }
-.mobile-nav a:hover {
+.mobile-nav-links a:hover {
   opacity: 0.6;
 }
+
+.mobile-nav-footer {
+  width: 100%;
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+.mobile-social-icons {
+  display: flex;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+.mobile-social-icons a {
+  color: #fff;
+  transition: opacity var(--dur) var(--ease);
+}
+.mobile-social-icons a:hover { opacity: 0.6; }
+.mobile-social-icons svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 1.5;
+}
+.mobile-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+}
+.mobile-footer-links {
+  display: flex;
+  gap: var(--space-lg);
+}
+.mobile-footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.625rem;
+}
+.mobile-footer-links a:hover { color: #fff; }
 
 /* ============================================================
    HERO — 50/50 split, full-viewport, matching Elle & Riley
@@ -476,7 +525,7 @@ h3 { font-size: var(--text-h3); }  /* 20px */
 .hero-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100dvh;
+  height: calc(100dvh - var(--announcement-height));
   min-height: 700px;
 }
 
@@ -1093,14 +1142,14 @@ h3 { font-size: var(--text-h3); }  /* 20px */
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none; 
     min-height: auto; 
-    height: 100dvh; 
+    height: calc(100dvh - var(--announcement-height)); 
   }
   .hero-split::-webkit-scrollbar { display: none; }
   .hero-panel.hero-main, .hero-panel.hero-secondary { 
     flex: 0 0 100vw; 
     scroll-snap-align: start; 
-    height: 100dvh; 
-    min-height: 100dvh;
+    height: calc(100dvh - var(--announcement-height)); 
+    min-height: auto;
     display: block; /* Ensure secondary shows */
   }
 
