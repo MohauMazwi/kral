@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     2: { name: 'Midnight Oxford', price: 'R 2,650', category: 'Formal', image: 'assets/images/product-2.png', desc: 'Polished black calfskin leather oxford — the quintessential formal shoe for the discerning professional.' },
     3: { name: 'Sahara Desert Boot', price: 'R 2,200', category: 'Smart Casual', image: 'assets/images/product-3.png', desc: 'Cognac suede desert boot with natural crepe sole. The perfect bridge between casual and refined.' },
     4: { name: 'Olive Suede Casual', price: 'R 1,950', category: 'Smart Casual', image: 'assets/images/product-4.png', desc: 'Contemporary olive green suede with clean white rubber sole. Bold yet understated.' },
-    5: { name: 'Slate Ankle Boot', price: 'R 2,800', category: 'Boots', image: 'assets/images/product-5.png', desc: 'Dark grey leather ankle boot with side zip. Sleek modern design for seamless transitions.' },
+    5: { name: 'Noir Derby', price: 'R 2,800', category: 'Loafers', image: 'assets/images/product-5.png', desc: 'Sleek black pebbled leather derby with lug sole. Modern design for seamless transitions from office to evening.' },
     6: { name: 'Burgundy Wingtip', price: 'R 2,750', category: 'Formal', image: 'assets/images/product-6.png', desc: 'Rich burgundy wingtip brogue in hand-dyed leather. Classic gentleman styling with a contemporary edge.' },
     7: { name: 'Camel Penny Loafer', price: 'R 1,850', category: 'Smart Casual', image: 'assets/images/product-7.png', desc: 'Warm camel tan leather penny loafer. The ultimate smart casual companion.' },
-    8: { name: 'Chelsea Boot', price: 'R 2,950', category: 'Boots', image: 'assets/images/product-8.png', desc: 'Black leather Chelsea boot with elastic side panels. Clean, bold, and versatile.' }
+    8: { name: 'Classic Oxford', price: 'R 2,950', category: 'Loafers', image: 'assets/images/product-8.png', desc: 'Premium black leather cap-toe Oxford with lug sole. Clean, bold, and versatile — the ultimate formal shoe.' }
   };
 
   // --- Announcement bar close ---
